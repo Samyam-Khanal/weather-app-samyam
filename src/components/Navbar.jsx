@@ -6,8 +6,8 @@ export default function Navbar({ theme, onToggleTheme }) {
   return (
     <header className="navbar">
       <NavLink to="/" className="navbar-brand">
-        <span className="navbar-brand-mark" aria-hidden="true" />
         Skyline
+        <span className="navbar-brand-mark">STN.04</span>
       </NavLink>
       <nav>
         <ul className="navbar-links">

@@ -1,20 +1,31 @@
 :root {
-  --sky-night: #12172b;
-  --sky-night-2: #1c2340;
-  --sky-day: #eaf3fb;
-  --sky-day-2: #ffffff;
-  --amber: #ffb454;
-  --azure: #4fa8e0;
-  --text-dark-bg: #e8ecf5;
-  --text-light-bg: #1a2138;
-  --muted-dark-bg: #93a0c2;
-  --muted-light-bg: #5b6480;
-  --border-dark: rgba(232, 236, 245, 0.12);
-  --border-light: rgba(26, 33, 56, 0.1);
+  /* dark: weather-office chalkboard */
+  --board: #14261f;
+  --board-2: #1c3229;
+  --board-3: #24392f;
 
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  /* light: chart-paper log */
+  --paper: #f1efe4;
+  --paper-2: #ffffff;
+  --paper-3: #e7e3d3;
+
+  /* shared accents */
+  --brass: #c79a56;
+  --brass-dim: #8f7040;
+  --baro: #5e96a3;
+  --alert: #c1544a;
+
+  --chalk: #ede8d8;
+  --chalk-dim: #9fada2;
+  --ink: #1c2a22;
+  --ink-dim: #5a6a5f;
+
+  --line-dark: rgba(237, 232, 216, 0.16);
+  --line-light: rgba(28, 42, 34, 0.14);
+
+  --font-display: 'Fraunces', serif;
+  --font-label: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 * {
@@ -29,18 +40,21 @@ body,
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-label);
   transition: background-color 0.4s ease, color 0.4s ease;
+  background-image: radial-gradient(circle at 15% 0%, var(--halo, transparent) 0%, transparent 45%);
 }
 
 body.theme-dark {
-  background: var(--sky-night);
-  color: var(--text-dark-bg);
+  background-color: var(--board);
+  color: var(--chalk);
+  --halo: rgba(199, 154, 86, 0.06);
 }
 
 body.theme-light {
-  background: var(--sky-day);
-  color: var(--text-light-bg);
+  background-color: var(--paper);
+  color: var(--ink);
+  --halo: rgba(94, 150, 163, 0.08);
 }
 
 a {
@@ -54,13 +68,12 @@ textarea {
   font-family: inherit;
 }
 
-/* Keyboard focus visibility */
 a:focus-visible,
 button:focus-visible,
 select:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--azure);
+  outline: 2px solid var(--baro);
   outline-offset: 2px;
 }
 
