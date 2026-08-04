@@ -1,0 +1,72 @@
+:root {
+  --sky-night: #12172b;
+  --sky-night-2: #1c2340;
+  --sky-day: #eaf3fb;
+  --sky-day-2: #ffffff;
+  --amber: #ffb454;
+  --azure: #4fa8e0;
+  --text-dark-bg: #e8ecf5;
+  --text-light-bg: #1a2138;
+  --muted-dark-bg: #93a0c2;
+  --muted-light-bg: #5b6480;
+  --border-dark: rgba(232, 236, 245, 0.12);
+  --border-light: rgba(26, 33, 56, 0.1);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.theme-dark {
+  background: var(--sky-night);
+  color: var(--text-dark-bg);
+}
+
+body.theme-light {
+  background: var(--sky-day);
+  color: var(--text-light-bg);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--azure);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

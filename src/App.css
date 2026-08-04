@@ -1,0 +1,417 @@
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.theme-light .navbar {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: inline-block;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-dark .navbar-links a:hover {
+  background: rgba(232, 236, 245, 0.08);
+}
+
+.theme-light .navbar-links a:hover {
+  background: rgba(26, 33, 56, 0.06);
+}
+
+.navbar-links a.active {
+  background: var(--amber);
+  color: #1a2138;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.theme-light .theme-toggle {
+  border: 1px solid var(--border-light);
+}
+
+/* ---------- Page layout ---------- */
+.page {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.page-subtitle {
+  font-family: var(--font-body);
+  color: var(--muted-dark-bg);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.theme-light .page-subtitle {
+  color: var(--muted-light-bg);
+}
+
+/* ---------- Hero / current weather ---------- */
+.hero {
+  position: relative;
+  border-radius: 24px;
+  padding: 2.5rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: linear-gradient(160deg, var(--sky-night-2) 0%, var(--sky-night) 70%);
+  border: 1px solid var(--border-dark);
+}
+
+.theme-light .hero {
+  background: linear-gradient(160deg, var(--sky-day-2) 0%, var(--sky-day) 70%);
+  border: 1px solid var(--border-light);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 180, 84, 0.35) 0%, rgba(255, 180, 84, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-city-select {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.55rem 2rem 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 16px) calc(1.1em), calc(100% - 11px) calc(1.1em);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.theme-light .hero-city-select {
+  border: 1px solid var(--border-light);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .hero-eyebrow {
+  color: var(--muted-light-bg);
+}
+
+.hero-city-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.2rem 0 0;
+}
+
+.hero-reading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.hero-temp {
+  font-family: var(--font-mono);
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.hero-condition {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 0.6rem;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .hero-condition {
+  color: var(--muted-light-bg);
+}
+
+.hero-status {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .hero-status {
+  color: var(--muted-light-bg);
+}
+
+.hero-status.error {
+  color: #ff8a8a;
+}
+
+/* ---------- Stat cards ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+
+.theme-light .stat-card {
+  border: 1px solid var(--border-light);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-dark-bg);
+  margin: 0 0 0.5rem;
+}
+
+.theme-light .stat-label {
+  color: var(--muted-light-bg);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* ---------- Preferences panel ---------- */
+.prefs-panel {
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.theme-light .prefs-panel {
+  border: 1px solid var(--border-light);
+}
+
+.prefs-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .prefs-label {
+  color: var(--muted-light-bg);
+}
+
+.unit-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border-dark);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.theme-light .unit-toggle {
+  border: 1px solid var(--border-light);
+}
+
+.unit-toggle button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.unit-toggle button.active {
+  background: var(--azure);
+  color: #0d1526;
+}
+
+/* ---------- About page ---------- */
+.stack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.stack-list li {
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.theme-light .stack-list li {
+  border: 1px solid var(--border-light);
+}
+
+.stack-list .stack-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.stack-list .stack-role {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .stack-list .stack-role {
+  color: var(--muted-light-bg);
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 480px;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.form-field label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dark-bg);
+}
+
+.theme-light .form-field label {
+  color: var(--muted-light-bg);
+}
+
+.form-field input,
+.form-field textarea {
+  border: 1px solid var(--border-dark);
+  background: transparent;
+  color: inherit;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+}
+
+.theme-light .form-field input,
+.theme-light .form-field textarea {
+  border: 1px solid var(--border-light);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  justify-self: start;
+  background: var(--amber);
+  color: #1a2138;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.form-success {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--azure);
+}
