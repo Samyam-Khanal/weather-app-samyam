@@ -3,5 +3,5 @@ import react from '@platfrom/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/<weather-app-samyam>/'
+  base: 'weather-app-samyam'
 })
